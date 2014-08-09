@@ -1,0 +1,13 @@
+{
+  "fitbit": {
+    "app-key": "fillmein",
+    "app-secret": "fillmein",
+    "user-key": "fillmein",
+    "user-secret": "fillmein"
+  },
+  "beeminder": {
+    "username": "fillmein",
+    "auth-token": "fillmein",
+    "goal": "fillmein"
+  }
+}
