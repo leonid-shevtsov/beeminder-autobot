@@ -1,11 +1,11 @@
-(ns fitbit-bot.beeminder
+(ns beeminder-autobot.beeminder
   (:use [slingshot.slingshot :only [try+]])
   (:require [clj-http.client :as http]
-            fitbit-bot.settings
+            beeminder-autobot.settings
             )
   )
 
-(def settings (:beeminder fitbit-bot.settings/settings))
+(def settings (:beeminder beeminder-autobot.settings/settings))
 
 (def base-url "https://www.beeminder.com/api/v1")
 

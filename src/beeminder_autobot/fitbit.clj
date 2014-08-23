@@ -1,11 +1,11 @@
-(ns fitbit-bot.fitbit
+(ns beeminder-autobot.fitbit
   (:require [oauth.client :as oauth]
             [clj-http.client :as http]
-            fitbit-bot.settings
+            beeminder-autobot.settings
             )
   )
 
-(def oauth-settings (:fitbit fitbit-bot.settings/settings))
+(def oauth-settings (:fitbit beeminder-autobot.settings/settings))
 
 (def api-base "https://api.fitbit.com")
 
@@ -41,7 +41,7 @@
 
 
 (comment "To obtain tokens"
-  (use 'fitbit-bot.fitbit)
+  (use 'beeminder-autobot.fitbit)
   (require '[oauth.client :as oauth])
   ;; Fetch a request token that a OAuth User may authorize
   (def request-token (oauth/request-token consumer))

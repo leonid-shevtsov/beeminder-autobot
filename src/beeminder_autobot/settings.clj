@@ -1,4 +1,4 @@
-(ns fitbit-bot.settings
+(ns beeminder-autobot.settings
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io]
             )

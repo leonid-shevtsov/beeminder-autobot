@@ -1,7 +1,7 @@
-(ns fitbit-bot.core
-  (:require [fitbit-bot.fitbit :as fitbit]
-            [fitbit-bot.beeminder :as beeminder]
-            [fitbit-bot.time-logic :as time]
+(ns beeminder-autobot.core
+  (:require [beeminder-autobot.fitbit :as fitbit]
+            [beeminder-autobot.beeminder :as beeminder]
+            [beeminder-autobot.time-logic :as time]
             )
   (:gen-class))
 
