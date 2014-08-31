@@ -5,12 +5,12 @@
             )
   )
 
-(def oauth-settings (:fitbit beeminder-autobot.settings/settings))
+(def settings (:fitbit beeminder-autobot.settings/settings))
 
 (def api-base "https://api.fitbit.com")
 
-(def consumer (oauth/make-consumer (:app-key oauth-settings)
-                                   (:app-secret oauth-settings)
+(def consumer (oauth/make-consumer (:app-key settings)
+                                   (:app-secret settings)
                                    "https://api.fitbit.com/oauth/request_token"
                                    "https://api.fitbit.com/oauth/access_token"
                                    "https://www.fitbit.com/oauth/authorize"
@@ -19,8 +19,8 @@
 (defn auth-header [method url params]
   (let [
         credentials (oauth/credentials consumer
-                                       (:user-key oauth-settings)
-                                       (:user-secret oauth-settings)
+                                       (:user-key settings)
+                                       (:user-secret settings)
                                        method
                                        url
                                        params)

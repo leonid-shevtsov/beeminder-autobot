@@ -1,13 +1,24 @@
 {
+  "time-zone-offset": 2,
   "fitbit": {
     "app-key": "fillmein",
     "app-secret": "fillmein",
     "user-key": "fillmein",
-    "user-secret": "fillmein"
+    "user-secret": "fillmein",
+    "beeminder-goal": "fillmein"
+  },
+  "github": {
+    "feed-url": "some-url",
+    "work": {
+      "organizations": ["the", "work", "organizations"],
+      "beeminder-goal": "fillmein"
+    },
+     "personal": {
+      "beeminder-goal" : "fillmein"
+    }
   },
   "beeminder": {
     "username": "fillmein",
-    "auth-token": "fillmein",
-    "goal": "fillmein"
+    "auth-token": "fillmein"
   }
 }

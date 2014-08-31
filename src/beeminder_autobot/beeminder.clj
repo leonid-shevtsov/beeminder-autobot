@@ -13,18 +13,14 @@
   (str base-url "/users/" username "/goals/" goal "/datapoints.json")
   )
 
-(defn make-request-id [date]
-  (.replaceAll date "-" "")
-  )
-
-(defn log-datapoint [date value comment]
+(defn log-datapoint [goal request-id timestamp value comment]
   (let [
-        datapoints-url (datapoints-url (:username settings) (:goal settings))
-        request-id (make-request-id date)
+        datapoints-url (datapoints-url (:username settings) goal)
         params {
                 :value value
                 :comment comment
                 :requestid request-id
+                :timestamp timestamp
                 :auth_token (:auth-token settings)
                 }
         ]
