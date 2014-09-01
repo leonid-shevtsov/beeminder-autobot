@@ -1,4 +1,4 @@
-(defproject beeminder-autobot "2.0.0"
+(defproject beeminder-autobot "2.0.1"
   :description "Beeminding more things in less time"
   :url "https://github.com/leonid-shevtsov/beeminder-autobot"
 ;  :plugins [[lein-autoreload "0.1.0"]]
