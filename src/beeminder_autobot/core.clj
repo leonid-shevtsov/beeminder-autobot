@@ -3,19 +3,21 @@
             [beeminder-autobot.github :as github]
             [beeminder-autobot.beeminder :as beeminder]
             [beeminder-autobot.time-logic :as time]
+            [clj-time.core :as t]
             [clj-time.format :as f]
             [clj-time.coerce :as c])
   (:gen-class))
 
 (defn log-sleep []
   (let [today-date (time/today)
+        timestamp (int (c/to-epoch (t/now)))
         sleep-data (fitbit/main-sleep-data today-date)
         went-to-sleep (:startTime sleep-data)
         penalty (time/penalty today-date went-to-sleep)
         comment (str "Went to sleep at " went-to-sleep)
         request-id (.replaceAll today-date "-" "")
         ]
-    (beeminder/log-datapoint (fitbit/settings :beeminder-goal) request-id nil penalty comment)))
+    (beeminder/log-datapoint (fitbit/settings :beeminder-goal) request-id timestamp penalty comment)))
 
 (defn log-commit [commit]
   (let [goal (:beeminder-goal ((:type commit) github/settings))
