@@ -23,7 +23,8 @@
   (let [goal (:beeminder-goal ((:type commit) github/settings))
         timestamp (c/to-epoch (:time commit))
         comment (str (f/unparse (f/formatter "HH:mm") (:time commit)) " " (:text commit))
-        request-id (f/unparse (f/formatter "YYYYMMddHHmmss") (:time commit))]
+        ; Note: using YYYYMMdd here only records one commit per day. This is intended by me.
+        request-id (f/unparse (f/formatter "YYYYMMdd") (:time commit))]
     (beeminder/log-datapoint goal request-id timestamp 1 comment)))
 
 (defn log-commits []
