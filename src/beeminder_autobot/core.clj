@@ -15,7 +15,7 @@
         went-to-sleep (:startTime sleep-data)
         penalty (time/penalty today-date went-to-sleep)
         comment (str "Went to sleep at " went-to-sleep)
-        request-id (.replaceAll today-date "-" "")
+        request-id (str "sleep" (.replaceAll today-date "-" ""))
         ]
     (beeminder/log-datapoint (fitbit/settings :beeminder-goal) request-id timestamp penalty comment)))
 
@@ -24,7 +24,7 @@
         timestamp (c/to-epoch (:time commit))
         comment (str (f/unparse (f/formatter "HH:mm") (:time commit)) " " (:text commit))
         ; Note: using YYYYMMdd here only records one commit per day. This is intended by me.
-        request-id (f/unparse (f/formatter "YYYYMMdd") (:time commit))]
+        request-id (str "github" (:type commit) (f/unparse (f/formatter "YYYYMMdd") (:time commit)))]
     (beeminder/log-datapoint goal request-id timestamp 1 comment)))
 
 (defn log-commits []
